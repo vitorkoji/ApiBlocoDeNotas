@@ -18,25 +18,14 @@ module.exports = function (sqlQry, val, res) {
     port: 5432,
   })
 
-  pool.query(sqlQry, val, function (error, results, fields) {
+  connection.query(sqlQry, val, function (error, results, fields) {
     if (error)
       res.json(error);
     else
       res.json(results);
-    pool.end();
+    connection.end();
     console.log('executou!');
   });
 
-  return pool;
-
-  // connection.query(sqlQry, val, function (error, results, fields) {
-  //   if (error)
-  //     res.json(error);
-  //   else
-  //     res.json(results);
-  //   connection.end();
-  //   console.log('executou!');
-  // });
-
-  // return connection;
+  return connection;
 }

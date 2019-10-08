@@ -13,8 +13,8 @@ exports.get = (req, res, next) => {
 
 exports.post = (req, res, next) => {
     const filter = [
-        req.body.titulo.substring(0,30), 
-        req.body.noticia.substring(0,150)
+        // req.body.titulo.substring(0,30), 
+        req.body.texto.substring(0,150)
     ];
 
     execSQLQuery(`INSERT INTO anotacao(titulo, texto) VALUES( ? , ? )`, filter, res);
@@ -22,7 +22,7 @@ exports.post = (req, res, next) => {
 exports.patch = (req, res, next) => {
     const filter = [
         req.body.titulo.substring(0,30), 
-        req.body.noticia.substring(0,150),
+        req.body.texto.substring(0,150),
         parseInt(req.params.id)
     ];
     execSQLQuery(`UPDATE anotacao SET titulo= ?, texto= ? WHERE id_noticia= ?`, filter, res);
