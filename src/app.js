@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 //definindo as rotas
 const index = require('./routes/index');
 const blocoNotas = require('./routes/blocoNotasRoute');

@@ -1,9 +1,6 @@
 const app = require('../src/app');
 const bodyParser = require('body-parser');
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
 const port = normalizaPort(process.env.PORT || '3000');
 function normalizaPort(val) {
     const port = parseInt(val, 10);
