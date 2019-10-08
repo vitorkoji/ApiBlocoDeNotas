@@ -1,5 +1,4 @@
 const app = require('../src/app');
-const bodyParser = require('body-parser');
 
 const port = normalizaPort(process.env.PORT || '3000');
 function normalizaPort(val) {
