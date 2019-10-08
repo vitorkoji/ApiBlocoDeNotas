@@ -17,20 +17,18 @@ exports.get = (req, res, next) => {
 };
 
 exports.post = (req, res, next) => {
-    const titulo = req.body.titulo;
-    const texto = req.body.texto
-    const filter = [titulo, texto];
-
-    console.log(titulo);
-    console.log(filter);
+    const filter = [
+        req.body.titulo, 
+        req.body.texto
+    ];
 
     execSQLQuery(`INSERT INTO anotacao(titulo, texto) VALUES( $1 , $2 )`, filter, res);
 };
 
 exports.patch = (req, res, next) => {
     const filter = [
-        req.body.titulo.substring(0,30), 
-        req.body.texto.substring(0,150),
+        req.body.titulo, 
+        req.body.texto,
         parseInt(req.params.id)
     ];
     execSQLQuery(`UPDATE anotacao SET titulo= $1, texto= $2 WHERE id_anotacao= $3`, filter, res);
