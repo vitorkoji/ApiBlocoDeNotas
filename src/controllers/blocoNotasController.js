@@ -1,12 +1,12 @@
 
 exports.getAll = (req, res, next) => {
     const filter = '';
-    execSQLQuery('SELECT * FROM noticias', filter, res);
+    execSQLQuery('SELECT * FROM anotacao', filter, res);
 };
 
 exports.get = (req, res, next) => {
     const filter = [parseInt(req.params.id)];
-    const consulta = 'SELECT * FROM noticias WHERE id_noticia= ?';
+    const consulta = 'SELECT * FROM anotacao WHERE id_noticia= ?';
     
     execSQLQuery(consulta, filter, res);
 };
@@ -17,7 +17,7 @@ exports.post = (req, res, next) => {
         req.body.noticia.substring(0,150)
     ];
 
-    execSQLQuery(`INSERT INTO noticias(titulo, noticia) VALUES( ? , ? )`, filter, res);
+    execSQLQuery(`INSERT INTO anotacao(titulo, texto) VALUES( ? , ? )`, filter, res);
 };
 exports.patch = (req, res, next) => {
     const filter = [
@@ -25,11 +25,11 @@ exports.patch = (req, res, next) => {
         req.body.noticia.substring(0,150),
         parseInt(req.params.id)
     ];
-    execSQLQuery(`UPDATE noticias SET titulo= ?, noticia= ? WHERE id_noticia= ?`, filter, res);
+    execSQLQuery(`UPDATE anotacao SET titulo= ?, texto= ? WHERE id_noticia= ?`, filter, res);
 };
 exports.delete = (req, res, next) => {
     const filter = [parseInt(req.params.id)];
-    execSQLQuery('DELETE FROM noticias WHERE id_noticia= ?', filter, res);
+    execSQLQuery('DELETE FROM anotacao WHERE id_noticia= ?', filter, res);
 };
 
 

@@ -15,6 +15,6 @@ admin.get('/', function (req, res) {
 app.use(['/adm*n', '/manager'], admin) // load the 'admin' router on '/adm*n' and '/manager', on the parent app
 
 app.use('/', index);
-app.use('/noticias', blocoNotas);
+app.use('/anotacao', blocoNotas);
 
 module.exports = app;
