@@ -6,6 +6,7 @@ exports.getAll = (req, res, next) => {
 
 exports.get = (req, res, next) => {
     const filter = [parseInt(req.params.id)];
+    console.log(filter);
     const consulta = 'SELECT * FROM anotacao WHERE id_noticia= ?';
     
     execSQLQuery(consulta, filter, res);
