@@ -17,11 +17,11 @@ exports.get = (req, res, next) => {
 };
 
 exports.post = (req, res, next) => {
-    const filter = [
-        req.body.titulo, 
-        req.body.texto
-    ];
+    const titulo = req.body.titulo;
+    const texto = req.body.texto
+    const filter = [titulo, texto];
 
+    console.log(titulo);
     console.log(filter);
 
     execSQLQuery(`INSERT INTO anotacao(titulo, texto) VALUES( $1 , $2 )`, filter, res);
