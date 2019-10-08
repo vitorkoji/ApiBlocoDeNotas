@@ -22,6 +22,8 @@ exports.post = (req, res, next) => {
         req.body.texto.substring(0,150)
     ];
 
+    console.log(filter);
+
     execSQLQuery(`INSERT INTO anotacao(titulo, texto) VALUES( $1 , $2 )`, filter, res);
 };
 
